@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CityJS Conference Schedule</title>
+    <title>CityJS London 2025 Schedule</title>
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -86,10 +86,27 @@
         border-radius: 8px;
         margin-top: 20px;
       }
+      .subtitle {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        color: #666;
+      }
+      .subtitle a {
+        color: #999;
+      }
     </style>
   </head>
   <body>
-    <h1>CityJS Conference Schedule</h1>
+    <h1>CityJS London 2025 Schedule</h1>
+    <p class="subtitle">
+      An unofficial view of the
+      <a href="https://london.cityjsconf.org/schedule" target="_blank"
+        >conference schedule</a
+      >, made by <a href="https://elliotbentley.com">Elliot Bentley</a>
+      •
+      <a href="https://github.com/ejb/cityjs25-schedule">source on github</a>
+    </p>
     <div class="current-time" id="current-time"></div>
     <div class="schedule-container" id="schedule"></div>
 
@@ -127,11 +144,9 @@
           // Update the schedule every minute
           setInterval(() => {
             renderSchedule(data);
-            updateCurrentTime();
           }, 60000);
 
           // Initial current time display
-          updateCurrentTime();
         } catch (error) {
           console.error("Error fetching schedule:", error);
           document.getElementById("schedule").innerHTML =
