@@ -1,0 +1,267 @@
+[
+  [
+    {
+      "title": "Registration and Breakfast",
+      "pars": ["08:30"],
+      "room": "Main Room"
+    },
+    {
+      "title": "Kent C Dodds",
+      "pars": ["The Future of User Interaction", "09:45"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/77kUu1c5hb5JL2sNWapcPy"
+    },
+    {
+      "title": "Maxim Salnikov",
+      "pars": [
+        "Privacy-first in-browser Generative AI web apps: offline-ready, future-proof, standards-based",
+        "10:25"
+      ],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/7K6ncgWhxHRC2ZZU6Uz89C"
+    },
+    {
+      "title": "Michael Arnaldi",
+      "pars": ["Effect: Production-Grade TypeScript", "10:55"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/43UJrww6JcguGaYzS46XKG"
+    },
+    {
+      "title": "Break",
+      "pars": ["11:15"],
+      "room": "Main Room"
+    },
+    {
+      "title": "Zack Jackson",
+      "pars": ["The Untold History Behind Lynx", "11:30"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/3LvSnt3RiK97ZCXGyKUuUL"
+    },
+    {
+      "title": "Liran Tal",
+      "pars": ["Hacking AI Applications", "12:00"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/7277hp5Mk66GPFnJU0UAQ8"
+    },
+    {
+      "title": "Lunch",
+      "pars": ["12:30"],
+      "room": "Main Room"
+    },
+    {
+      "title": "Jo Franchetti",
+      "pars": [
+        "Building an in-browser code editor (that can run your code too!)",
+        "13:30"
+      ],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/340Sh3BwhkCKJRrCmN1BMl"
+    },
+    {
+      "title": "Marco Ippolito",
+      "pars": ["TypeScript Goes Native", "14:00"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/7691fkhMlMp0ZEBcVLICiF"
+    },
+    {
+      "title": "Ramona Schwering",
+      "pars": [
+        "From the crypt to the code: Web security explored through horror movies",
+        "14:30"
+      ],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/HH1E6y9zU3u5QIR47C3Qn"
+    },
+    {
+      "title": "Break",
+      "pars": ["14:50"],
+      "room": "Main Room"
+    },
+    {
+      "title": "Tamas Piros",
+      "pars": ["Full Stack Web Development with AI", "15:05"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/2lz6sxpJkbsWIhddexkt8H"
+    },
+    {
+      "title": "Rich Harris",
+      "pars": ["Await for it", "15:40"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/3KQCa20DJm2teu7o7Hoff7"
+    },
+    {
+      "title": "Rahul Nanwani",
+      "pars": [
+        "Deliver Video-First Experiences with a Real-Time Video API",
+        "16:15"
+      ],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/3YB2Zm9v1Vk2oc0oPsn3V3"
+    },
+    {
+      "title": "Jason Lengstorf",
+      "pars": ["The Upside of Being Unreasonable", "16:20"],
+      "room": "Main Room",
+      "link": "https://london.cityjsconf.org/talk/7q7lpReAKxm57ltbhY8rki"
+    },
+    {
+      "title": "The closing of the conference",
+      "pars": ["16:50"],
+      "room": "Main Room"
+    }
+  ],
+  [
+    {
+      "title": "Matheus Albuquerque",
+      "pars": [
+        "Speed at Scale: Optimizing The Largest CX Platform Out There",
+        "10:25"
+      ],
+      "room": "Education Center",
+      "link": "https://london.cityjsconf.org/talk/1MEMgEHAnVIcykvwably8f"
+    },
+    {
+      "title": "Daniel Afonso",
+      "pars": ["The 2025 State of JavaScript Testing", "10:55"],
+      "room": "Education Center",
+      "link": "https://london.cityjsconf.org/talk/1CMwhS0psYYIYc6sXNX4MH"
+    },
+    {
+      "title": "Break",
+      "pars": ["11:15"],
+      "room": "Education Center"
+    },
+    {
+      "title": "Rahul Nanwani",
+      "pars": [
+        "High-quality, performant images and videos on your React website (and some AI magic!)",
+        "11:30"
+      ],
+      "room": "Education Center",
+      "link": "https://london.cityjsconf.org/talk/BjY7ZOMQBq2OGbn8zHFzj"
+    },
+    {
+      "title": "Lunch",
+      "pars": ["12:30"],
+      "room": "Education Center"
+    },
+    {
+      "title": "Guilherme Dalla Rosa",
+      "pars": [
+        "Architecting Multi-Tenant Solutions with Next.js and the App Router",
+        "14:15"
+      ],
+      "room": "Education Center",
+      "link": "https://london.cityjsconf.org/talk/5eozf6qE1zNygRrHaNi8Sc"
+    },
+    {
+      "title": "Break",
+      "pars": ["14:50"],
+      "room": "Education Center"
+    },
+    {
+      "title": "Faris Aziz",
+      "pars": [
+        "From Fragile to Future-Proof: Solving Web Monetization Chaos with Payment Systems That Scale",
+        "15:05"
+      ],
+      "room": "Education Center",
+      "link": "https://london.cityjsconf.org/talk/4qEIIMbfJ8eLMmeNcvc2C"
+    },
+    {
+      "title": "Peter-Paul Koch",
+      "pars": ["Pay the Web Forward", "15:40"],
+      "room": "Education Center",
+      "link": "https://london.cityjsconf.org/talk/2e1MoiQ40XFuqIs63RVi8B"
+    }
+  ],
+  [
+    {
+      "title": "Soumaya Erradi",
+      "pars": [
+        "Cypress, Playwright or Selenium: choosing the right testing tool",
+        "10:25"
+      ],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/1PPdxDE8vNVcwrjLJtG28p"
+    },
+    {
+      "title": "Adam Cowley",
+      "pars": ["Generative AI for Front-end Developers", "10:55"],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/3b9XHj1HBahP8KJ13uWVui"
+    },
+    {
+      "title": "Break",
+      "pars": ["11:15"],
+      "room": "Lowther Room"
+    },
+    {
+      "title": "Roei Berkovich",
+      "pars": [
+        "Beyond the Hype: Facing Micro Frontend Challenges in Large-Scale",
+        "11:30"
+      ],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/70uQDCVFo1VwVARG0ViO65"
+    },
+    {
+      "title": "Perttu Lähteenlahti",
+      "pars": [
+        "3D graphics in React & React Native using React-three-fiber",
+        "12:00"
+      ],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/f65JhgwL44XNNEI6emJLH"
+    },
+    {
+      "title": "Lunch",
+      "pars": ["12:30"],
+      "room": "Lowther Room"
+    },
+    {
+      "title": "Kate Marshalkina",
+      "pars": [
+        "At the top of the pyramid: Playwright testing at scale",
+        "13:30"
+      ],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/1OUduy4J7EfVfeT5SBFSKp"
+    },
+    {
+      "title": "Vladimir de Turckheim",
+      "pars": [
+        "The news of the death of JavaScript has been greatly exaggerated",
+        "14:00"
+      ],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/5fIHwhF4APkC6yFejGjsDJ"
+    },
+    {
+      "title": "Jemima Abu",
+      "pars": ["Accessible.JS", "14:30"],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/HNMMd3KEKNyoasxcGv9mE"
+    },
+    {
+      "title": "Break",
+      "pars": ["14:50"],
+      "room": "Lowther Room"
+    },
+    {
+      "title": "Alistair Shepherd",
+      "pars": [
+        "Bill and Ted’s accessibility adventure: Accessibility testing for developers",
+        "15:05"
+      ],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/2ccjOoj4kh7JTWlLDmQHuH"
+    },
+    {
+      "title": "Matthew Cox",
+      "pars": ["Event Driven Frontends. What, why and how.", "15:40"],
+      "room": "Lowther Room",
+      "link": "https://london.cityjsconf.org/talk/7aVrq9MlG23Bryb3uGrpGo"
+    }
+  ]
+]
