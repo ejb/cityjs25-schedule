@@ -16,27 +16,36 @@
         text-align: center;
         color: #333;
       }
+      .current-time {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        color: #666;
+      }
       .schedule-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        max-width: 1400px;
+        max-width: 1200px;
         margin: 0 auto;
       }
-      .track {
+      .time-slot {
         background: white;
         border-radius: 8px;
         padding: 20px;
+        margin-bottom: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      .track h2 {
-        margin-top: 0;
+      .time-header {
+        font-size: 1.4em;
+        color: #2c3e50;
+        margin-bottom: 15px;
         padding-bottom: 10px;
         border-bottom: 2px solid #eee;
-        color: #2c3e50;
+      }
+      .sessions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
       }
       .session {
-        margin: 15px 0;
         padding: 15px;
         border-radius: 6px;
         background: #f8f9fa;
@@ -44,17 +53,19 @@
       .session:hover {
         background: #e9ecef;
       }
-      .time {
-        font-weight: bold;
+      .room {
+        font-size: 0.9em;
         color: #666;
-      }
-      .title {
-        margin: 5px 0;
-        color: #2c3e50;
+        margin-bottom: 5px;
       }
       .speaker {
         color: #0066cc;
         font-weight: 500;
+        margin: 5px 0;
+      }
+      .title {
+        margin: 5px 0;
+        color: #2c3e50;
       }
       .break {
         background: #e3f2fd;
@@ -66,18 +77,61 @@
       a:hover {
         text-decoration: underline;
       }
+      .empty-schedule {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-style: italic;
+        background: white;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
     <h1>CityJS Conference Schedule</h1>
+    <div class="current-time" id="current-time"></div>
     <div class="schedule-container" id="schedule"></div>
 
     <script>
+      function getCurrentBSTTime() {
+        const now = new Date();
+        // Convert to BST (UTC+1)
+        return new Date(now.getTime() + (now.getTimezoneOffset() + 60) * 60000);
+      }
+
+      function updateCurrentTime() {
+        const bstTime = getCurrentBSTTime();
+        document.getElementById(
+          "current-time"
+        ).textContent = `Current Time (BST): ${bstTime.toLocaleTimeString(
+          "en-GB",
+          { timeZone: "Europe/London" }
+        )}`;
+      }
+
+      function isSessionPast(sessionTime) {
+        const [hours, minutes] = sessionTime.split(":").map(Number);
+        const bstNow = getCurrentBSTTime();
+        const sessionDate = new Date(bstNow);
+        sessionDate.setHours(hours, minutes, 0);
+        return sessionDate < bstNow;
+      }
+
       async function fetchSchedule() {
         try {
           const response = await fetch("data.json");
           const data = await response.json();
           renderSchedule(data);
+
+          // Update the schedule every minute
+          setInterval(() => {
+            renderSchedule(data);
+            updateCurrentTime();
+          }, 60000);
+
+          // Initial current time display
+          updateCurrentTime();
         } catch (error) {
           console.error("Error fetching schedule:", error);
           document.getElementById("schedule").innerHTML =
@@ -89,36 +143,72 @@
         const container = document.getElementById("schedule");
         const rooms = ["Main Room", "Education Center", "Lowther Room"];
 
-        tracks.forEach((track, index) => {
-          const trackElement = document.createElement("div");
-          trackElement.className = "track";
-          trackElement.innerHTML = `<h2>${rooms[index]}</h2>`;
+        // Collect all sessions with their room information
+        const allSessions = tracks.flatMap((track, roomIndex) =>
+          track.map((session) => ({
+            ...session,
+            room: rooms[roomIndex],
+          }))
+        );
 
-          track.forEach((session) => {
-            const sessionElement = document.createElement("div");
-            sessionElement.className = `session ${
-              isBreak(session.title) ? "break" : ""
-            }`;
+        // Group sessions by time
+        const sessionsByTime = allSessions.reduce((acc, session) => {
+          const time = session.pars[session.pars.length - 1];
+          if (!isSessionPast(time)) {
+            if (!acc[time]) acc[time] = [];
+            acc[time].push(session);
+          }
+          return acc;
+        }, {});
 
-            const time = session.pars[session.pars.length - 1];
-            const content = session.link
-              ? `<div class="time">${time}</div>
-                           <a href="${session.link}" target="_blank">
-                             <div class="speaker">${session.title}</div>
-                             ${
-                               session.pars.length > 1
-                                 ? `<div class="title">${session.pars[0]}</div>`
-                                 : ""
-                             }
-                           </a>`
-              : `<div class="time">${time}</div>
-                           <div class="speaker">${session.title}</div>`;
+        // Sort times
+        const sortedTimes = Object.keys(sessionsByTime).sort((a, b) => {
+          const [aHours, aMinutes] = a.split(":").map(Number);
+          const [bHours, bMinutes] = b.split(":").map(Number);
+          return aHours * 60 + aMinutes - (bHours * 60 + bMinutes);
+        });
 
-            sessionElement.innerHTML = content;
-            trackElement.appendChild(sessionElement);
-          });
+        if (sortedTimes.length === 0) {
+          container.innerHTML =
+            '<div class="empty-schedule">No more sessions today</div>';
+          return;
+        }
 
-          container.appendChild(trackElement);
+        container.innerHTML = "";
+
+        sortedTimes.forEach((time) => {
+          const timeSlot = document.createElement("div");
+          timeSlot.className = "time-slot";
+
+          const sessions = sessionsByTime[time];
+          timeSlot.innerHTML = `
+            <div class="time-header">${time}</div>
+            <div class="sessions-grid">
+              ${sessions
+                .map(
+                  (session) => `
+                <div class="session ${isBreak(session.title) ? "break" : ""}">
+                  <div class="room">${session.room}</div>
+                  ${
+                    session.link
+                      ? `<a href="${session.link}" target="_blank">
+                       <div class="speaker">${session.title}</div>
+                       ${
+                         session.pars.length > 1
+                           ? `<div class="title">${session.pars[0]}</div>`
+                           : ""
+                       }
+                     </a>`
+                      : `<div class="speaker">${session.title}</div>`
+                  }
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+          `;
+
+          container.appendChild(timeSlot);
         });
       }
 
